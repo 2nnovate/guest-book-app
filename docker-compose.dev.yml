@@ -1,0 +1,34 @@
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: ./Dockerfile-dev
+    volumes:
+      - "./frontend:/app"
+    environment:
+      - NODE_ENV=dev
+    stdin_open: true
+    tty: true
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: ./Dockerfile-dev
+    volumes:
+      - "./backend:/app"
+    environment:
+      - NODE_ENV=dev
+
+  redis:
+    image: redis:latest
+    command: ["redis-server", "--bind", "0.0.0.0", "--port", "6379"]
+    ports:
+      - 6379:6379
+
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: ./Dockerfile-dev
+    ports:
+      - 80:80
+    restart: always

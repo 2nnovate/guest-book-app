@@ -1,0 +1,22 @@
+.guest-book-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.guest-book-item-content {
+    flex-basis: 300px;
+}
+
+.guest-book-item-input {
+    width: 100%;
+}
+
+.guest-book-item-input input {
+    color: white;
+}
+
+.guest-book-item-date {
+    color: gray;
+    flex-basis: 200px;
+}

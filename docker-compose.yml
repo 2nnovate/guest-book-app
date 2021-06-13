@@ -1,0 +1,26 @@
+services:
+  frontend:
+    depends_on:
+      - backend
+    networks:
+      - backend
+
+  backend:
+    depends_on:
+      - redis
+    networks:
+      - backend
+
+  redis:
+    networks:
+      - backend
+
+  nginx:
+    depends_on:
+      - backend
+      - frontend
+    networks:
+      - backend
+
+networks:
+  backend:
