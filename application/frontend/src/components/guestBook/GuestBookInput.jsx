@@ -17,6 +17,13 @@ const GuestBookInput = (props) => {
     setContent('');
   }, [content]);
 
+  const onEnter = useCallback((e) => {
+    if (e.key !== 'Enter') {
+      return;
+    }
+    onSend();
+  }, [content]);
+
   return (
     <List className="guest-book-item">
       <ListItem className="guest-book-item-content">
@@ -24,6 +31,7 @@ const GuestBookInput = (props) => {
             className="guest-book-item-input"
             value={content}
             onChange={onChangeContent}
+            onKeyPress={onEnter}
         />
       </ListItem>
       <Button variant="contained" color="primary" onClick={onSend}>

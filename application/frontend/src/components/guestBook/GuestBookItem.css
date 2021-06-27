@@ -19,4 +19,8 @@
 .guest-book-item-date {
     color: gray;
     flex-basis: 200px;
+    margin-left: auto;
+    padding-right: 0 !important;
+    display: inline !important;
+    text-align: right !important;
 }
