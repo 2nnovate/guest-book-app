@@ -6,7 +6,7 @@ import GuestBookItem from "./GuestBookItem";
 
 import './index.css';
 
-const Index = () => {
+const GuestBook = () => {
   const [list, setList] = useState([]);
 
   const getList = useCallback(() => {
@@ -47,5 +47,5 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default GuestBook;
 
