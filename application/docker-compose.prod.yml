@@ -1,0 +1,23 @@
+x-aws-vpc: ${AWS_VPC}
+x-aws-cluster: ${AWS_ECS_CLUSTER}
+x-aws-loadbalancer: ${AWS_ELB}
+
+services:
+  frontend:
+    image: ${IMAGE_URI}:frontend.${IMAGE_TAG}
+    environment:
+      - NODE_ENV=prod
+
+  backend:
+    image: ${IMAGE_URI}:backend.${IMAGE_TAG}
+    environment:
+      - NODE_ENV=prod
+
+  redis:
+    image: ${IMAGE_URI}:redis.${IMAGE_TAG}
+
+  nginx:
+    image: ${IMAGE_URI}:nginx.${IMAGE_TAG}
+    ports:
+      - 0:80
+
