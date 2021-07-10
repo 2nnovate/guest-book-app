@@ -14,7 +14,7 @@ services:
       - NODE_ENV=prod
 
   redis:
-    image: ${IMAGE_URI}:redis.${IMAGE_TAG}
+    image: ${IMAGE_URI}:redis.latest
 
   nginx:
     image: ${IMAGE_URI}:nginx.${IMAGE_TAG}
