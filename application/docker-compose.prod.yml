@@ -14,7 +14,7 @@ services:
       - NODE_ENV=prod
 
   redis:
-    image: ${IMAGE_URI}:redis.latest
+    image: 476364780248.dkr.ecr.ap-northeast-2.amazonaws.com/redis:latest
 
   nginx:
     image: ${IMAGE_URI}:nginx.${IMAGE_TAG}
