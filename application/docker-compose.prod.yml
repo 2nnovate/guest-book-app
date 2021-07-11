@@ -7,17 +7,38 @@ services:
     image: ${IMAGE_URI}:frontend.${IMAGE_TAG}
     environment:
       - NODE_ENV=prod
+    logging:
+      driver: awslogs
+      options:
+        awslogs-group: guest-book/app/log
+        awslogs-region: ap-northeast-2
 
   backend:
     image: ${IMAGE_URI}:backend.${IMAGE_TAG}
     environment:
       - NODE_ENV=prod
+    logging:
+      driver: awslogs
+      options:
+        awslogs-group: guest-book/app/log
+        awslogs-region: ap-northeast-2
 
   redis:
     image: 476364780248.dkr.ecr.ap-northeast-2.amazonaws.com/redis:latest
+    logging:
+      driver: awslogs
+      options:
+        awslogs-group: guest-book/app/log
+        awslogs-region: ap-northeast-2
 
   nginx:
     image: ${IMAGE_URI}:nginx.${IMAGE_TAG}
     ports:
       - 0:80
+    logging:
+      driver: awslogs
+      options:
+        awslogs-group: guest-book/app/log
+        awslogs-region: ap-northeast-2
+
 
